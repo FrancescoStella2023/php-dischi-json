@@ -33,7 +33,7 @@ $discs = getDiscs();
             <?php foreach ($discs as $disc) { ?>
 
                 <div class="col">
-                    <div class="card m-3 bg-dark p-2 rounded text-white ">
+                    <div class="card m-3 bg-dark p-4 rounded text-white ">
                         <div class="class-image">
                             <img class="w-100" src="<?= $disc['url_cover'] ?>" alt="<?= $disc['title'] ?>">
                         </div>
