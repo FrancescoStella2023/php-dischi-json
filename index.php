@@ -1,65 +1,10 @@
 <?php
 
-$discs = [
-    [
-        "title" => "test0",
-        "artist" => "testArtist0",
-        "url_cover" => "https://example.com",
-        "date_pulished" => "2026",
-        "genre" => "pop"
-    ],
-    [
-        "title" => "test1",
-        "artist" => "testArtist1",
-        "url_cover" => "https://example.com",
-        "date_pulished" => "2026",
-        "genre" => "Jazz"
-    ],
-    [
-        "title" => "test2",
-        "artist" => "testArtist2",
-        "url_cover" => "https://example.com",
-        "date_pulished" => "2026",
-        "genre" => "pop"
-    ],
-    [
-        "title" => "test3",
-        "artist" => "testArtist3",
-        "url_cover" => "https://example.com",
-        "date_pulished" => "2026",
-        "genre" => "Jazz"
-    ],
-    [
-        "title" => "test4",
-        "artist" => "testArtist4",
-        "url_cover" => "https://example.com",
-        "date_pulished" => "2026",
-        "genre" => "Jazz"
-    ],
-    [
-        "title" => "test5",
-        "artist" => "testArtist5",
-        "url_cover" => "https://example.com",
-        "date_pulished" => "2026",
-        "genre" => "Jazz"
-    ],
-    [
-        "title" => "test6",
-        "artist" => "testArtist6",
-        "url_cover" => "https://example.com",
-        "date_pulished" => "2026",
-        "genre" => "Jazz"
-    ],
-    [
-        "title" => "test7",
-        "artist" => "testArtist7",
-        "url_cover" => "https://example.com",
-        "date_pulished" => "2026",
-        "genre" => "Jazz"
-    ]
-]
+require_once "./functions.php";
 
-    ?>
+$discs = getDiscs();
+
+?>
 
 
 <!DOCTYPE html>
@@ -73,31 +18,37 @@ $discs = [
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
-    <div class="contaner-fluid py-4 text-white ps-5 bg-dark">
-        <h1>Catalogo dischi</h1>
+<body class="bg-secondary">
+    <div class="contaner-fluid py-4 px-4 mb-4 text-white bg-dark d-flex justify-content-between align-items-center">
+        <div>
+            <h1 class="fw-bold mb-0">Catalogo dischi +</h1>
+            <p class="text-secondary mb-0">Tutta la musica chea ami</p>
+        </div>
+        <a href="./addDiscPage.php" class="m-1 btn btn-success">Add new track</a>
     </div>
 
-    <div class="row row-cols-3 mb-3">
+    <div class="container-fluid">
+        <div class="row row-cols-3 mb-2">
 
-        <?php foreach ($discs as $disc) { ?>
+            <?php foreach ($discs as $disc) { ?>
 
-            <div class="col">
-                <div class="card m-3  ">
-                    <div class="class-image">
-                        <img class="w-100" src="<?= $disc['url_cover'] ?>" alt="<?= $disc['title'] ?>">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><?= $disc['title'] ?></h5>
-                        <p class="card-text"><?= $disc['artist'] ?></p>
-                        <p class="card-text"><?= $disc['date_pulished'] ?></p>
+                <div class="col">
+                    <div class="card m-3 bg-dark p-2 rounded text-white ">
+                        <div class="class-image">
+                            <img class="w-100" src="<?= $disc['url_cover'] ?>" alt="<?= $disc['title'] ?>">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-primary"><?= $disc['title'] ?></h5>
+                            <p class="card-text text-secondary"><?= $disc['artist'] ?></p>
+                            <p class="card-text text-black"><?= $disc['date_published'] ?></p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <?php
-        } ?>
+                <?php
+            } ?>
 
+        </div>
     </div>
 </body>
 
